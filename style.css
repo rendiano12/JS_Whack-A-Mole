@@ -45,10 +45,10 @@ div.lubang {
     width: 150px;
     overflow: hidden;
     margin: 0px 30px 0px 30px;
+    position: relative;
 }
 
 div.lubang:nth-child(4), div.lubang:last-child {
-    position: relative;
     left: 120px;
 }
 
@@ -66,4 +66,41 @@ div.tikus {
 
 div.keluar {
     top: 15px;
+}
+
+@media (min-width: 393px) and (min-height: 851px) and (orientation: portrait) {
+    button {
+        display: block;
+        padding: 5px;
+        font-size: 22pt;
+    }
+    
+    h1 {
+        text-align: center;
+        font-size: 48pt;
+    }
+
+    div.container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    div.lubang {
+        height: 250px;
+        width: 250px;
+        margin: 0px 10px 0px 10px;
+    }
+
+    div.tikus {
+        height: 300px;
+        width: 300px;
+        top: 250px;
+    }
+
+    div.keluar {
+        top: 45px;
+    }
+
+    div.lubang:nth-child(4), div.lubang:last-child {
+        left: 0px;
+    }
 }
