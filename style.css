@@ -63,42 +63,8 @@ div.keluar {
     top: 15px;
 }
 
-/*HP Biasa*/
-@media (orientation: portrait) and (min-width: 400px) and (min-height: 561px) {
-    button {
-        display: block;
-        padding: 5px;
-        font-size: 22pt;
-    }
-    
-    h1 {
-        text-align: center;
-        font-size: 48pt;
-    }
-
-    div.container {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    div.lubang {
-        height: 250px;
-        width: 250px;
-        margin: 0px 10px;
-    }
-
-    div.tikus {
-        height: 300px;
-        width: 300px;
-        top: 250px;
-    }
-
-    div.keluar {
-        top: 45px;
-    }
-}
-
 /* xiaomi portrait */
-@media (orientation: portrait) and (min-width: 393px) and (min-height: 851px) {
+@media (orientation: portrait) and (min-width: 390px) and (min-height: 844px) {
     button {
         display: block;
         padding: 5px;
@@ -112,6 +78,7 @@ div.keluar {
 
     div.container {
         grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
     }
 
     div.lubang {
@@ -121,12 +88,13 @@ div.keluar {
     }
 
     div.tikus {
-        height: 300px;
-        width: 300px;
+        height: 320px;
+        width: 320px;
         top: 250px;
+        right: 35px;
     }
 
     div.keluar {
-        top: 45px;
+        top: 55px;
     }
 }
