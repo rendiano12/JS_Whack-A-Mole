@@ -63,7 +63,7 @@ div.keluar {
     top: 15px;
 }
 
-@media (min-width: 360px) and (min-height: 800px) and (orientation: portrait) {
+@media (orientation: portrait) {
     button {
         display: block;
         padding: 5px;
