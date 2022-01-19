@@ -33,7 +33,7 @@ h1 {
 div.container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 50px;
+    gap: 10px;
     margin: 50px auto;
     width: fit-content;
 }
@@ -44,12 +44,7 @@ div.lubang {
     height: 150px;
     width: 150px;
     overflow: hidden;
-    margin: 0px 30px 0px 30px;
-    position: relative;
-}
-
-div.lubang:nth-child(4), div.lubang:last-child {
-    left: 120px;
+    margin: 20px;
 }
 
 div.tikus {
@@ -87,7 +82,7 @@ div.keluar {
     div.lubang {
         height: 250px;
         width: 250px;
-        margin: 0px 10px 0px 10px;
+        margin: 0px 10px;
     }
 
     div.tikus {
@@ -98,9 +93,5 @@ div.keluar {
 
     div.keluar {
         top: 45px;
-    }
-
-    div.lubang:nth-child(4), div.lubang:last-child {
-        left: 0px;
     }
 }

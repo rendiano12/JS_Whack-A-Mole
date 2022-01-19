@@ -2,7 +2,7 @@ const lubang = document.querySelectorAll('div.lubang');
 const tikus = document.querySelectorAll('div.tikus');
 const mulai = document.querySelector('button');
 const skorGame = document.querySelector('h1');
-const whack = document.querySelector('.whack');
+const whack = document.querySelectorAll('.whack');
 
 // variable
 let skor;
@@ -42,9 +42,19 @@ function mulaiGame() {
         setTimeout(function () {
             alert(`Skor Anda ${skor}`);
             gameJalan = false;
+            console.clear();
         }, 16000);
     }
     gameJalan = true;
+}
+
+function pukulAudio(whack) {
+    let randomAudio = whack[Math.floor(Math.random() * whack.length)];
+    if (!randomAudio.play()) {
+        randomAudio.play()
+    } else {
+        pukulAudio(whack);
+    }
 }
 
 // skor game
@@ -52,7 +62,7 @@ tikus.forEach(function (vTikus) {
     vTikus.addEventListener('click', function () {
         skor++;
         skorGame.innerText = skor;
-        whack.play();
+        pukulAudio(whack);
         this.classList.remove('keluar');
     });
 });
