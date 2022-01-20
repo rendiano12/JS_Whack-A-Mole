@@ -1,4 +1,3 @@
-const lubang = document.querySelectorAll('div.lubang');
 const tikus = document.querySelectorAll('div.tikus');
 const mulai = document.querySelector('button');
 const skorGame = document.querySelector('h1');
@@ -36,7 +35,7 @@ function mulaiGame() {
         skorGame.innerText = skor;
         selesai = false;
         tikusMuncul(tikus);
-        setTimeout(function() {
+        setTimeout(function () {
             selesai = true;
         }, 15000);
         setTimeout(function () {
