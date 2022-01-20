@@ -6,7 +6,7 @@ const whack = document.querySelectorAll('.whack');
 
 // variable
 let skor;
-let wMuncul;
+let selesai;
 let gameJalan = false;
 
 // memunculkan tikus
@@ -16,27 +16,28 @@ function waktuMuncul(min, max) {
 
 function tikusMuncul(tikus) {
     let nomorRandom = tikus[Math.floor(Math.random() * tikus.length)];
+    let wMuncul = waktuMuncul(400, 700);
     !nomorRandom.classList.contains('keluar')
         ? nomorRandom.classList.add('keluar')
         : tikusMuncul(tikus);
 
     setTimeout(function () {
         nomorRandom.classList.remove('keluar');
+        if (!selesai) {
+            tikusMuncul(tikus);
+        }
     }, wMuncul);
 }
 
 // mulai game
-mulai.addEventListener('click', mulaiGame);
 function mulaiGame() {
     if (gameJalan == false) {
         skor = 0;
         skorGame.innerText = skor;
-        wMuncul = waktuMuncul(400, 800);
-        let gameMulai = setInterval(function () {
-            tikusMuncul(tikus);
-        }, wMuncul);
-        setTimeout(function () {
-            clearInterval(gameMulai);
+        selesai = false;
+        tikusMuncul(tikus);
+        setTimeout(function() {
+            selesai = true;
         }, 15000);
         setTimeout(function () {
             alert(`Skor Anda ${skor}`);
