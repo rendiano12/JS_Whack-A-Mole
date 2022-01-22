@@ -64,7 +64,7 @@ div.keluar {
 }
 
 /* xiaomi portrait */
-@media (orientation: portrait) and (min-width: 390px) and (min-height: 844px) {
+@media (orientation: portrait) {
     button {
         display: block;
         padding: 5px;
@@ -77,8 +77,8 @@ div.keluar {
     }
 
     div.container {
+        display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
     }
 
     div.lubang {
@@ -95,6 +95,6 @@ div.keluar {
     }
 
     div.keluar {
-        top: 55px;
+        top: 25px;
     }
 }
