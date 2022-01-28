@@ -1,10 +1,12 @@
 const tikus = document.querySelectorAll('div.tikus');
 const mulai = document.querySelector('button');
-const skorGame = document.querySelector('h1');
+const skorGame = document.querySelector('.skor-tampil span:first-child');
+const waktuGamePapan = document.querySelector('.skor-tampil span:last-child');
 const whack = document.querySelectorAll('.whack');
 
 // variable
 let skor;
+let waktuGame;
 let selesai;
 let gameJalan = false;
 
@@ -16,6 +18,9 @@ function waktuMuncul(min, max) {
 function tikusMuncul(tikus) {
     let nomorRandom = tikus[Math.floor(Math.random() * tikus.length)];
     let wMuncul = waktuMuncul(400, 700);
+    tikus.forEach(valTikus => {
+        valTikus.addEventListener('click', tambahSkor);
+    });
     !nomorRandom.classList.contains('keluar')
         ? nomorRandom.classList.add('keluar')
         : tikusMuncul(tikus);
@@ -33,15 +38,21 @@ function mulaiGame() {
     if (gameJalan == false) {
         skor = 0;
         skorGame.innerText = skor;
+        waktuGame = 15;
+        waktuGamePapan.innerText = waktuGame;
         selesai = false;
         tikusMuncul(tikus);
+        let wSekarang = setInterval(function () {
+            waktuGame--;
+            waktuGamePapan.innerText = waktuGame;
+        }, 1000);
         setTimeout(function () {
             selesai = true;
+            clearInterval(wSekarang);
         }, 15000);
         setTimeout(function () {
-            alert(`Skor Anda ${skor}`);
+            alert(`Skor Anda ${skor}\nYour Score ${skor}`);
             gameJalan = false;
-            console.clear();
         }, 16000);
     }
     gameJalan = true;
@@ -49,17 +60,14 @@ function mulaiGame() {
 
 function pukulAudio(whack) {
     let randomAudio = whack[Math.floor(Math.random() * whack.length)];
-    !randomAudio.play()
-        ? randomAudio.play()
-        : pukulAudio(whack);
+    return randomAudio.play();
 }
 
 // skor game
-tikus.forEach(function (vTikus) {
-    vTikus.addEventListener('click', function () {
-        skor++;
-        skorGame.innerText = skor;
-        pukulAudio(whack);
-        this.classList.remove('keluar');
-    });
-});
+function tambahSkor() {
+    skor++;
+    skorGame.innerText = skor;
+    this.removeEventListener('click', tambahSkor);
+    pukulAudio(whack);
+    this.classList.remove('keluar');
+}
