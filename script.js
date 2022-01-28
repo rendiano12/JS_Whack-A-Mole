@@ -67,7 +67,7 @@ function pukulAudio(whack) {
 function tambahSkor() {
     skor++;
     skorGame.innerText = skor;
-    this.removeEventListener('click', tambahSkor);
     pukulAudio(whack);
+    this.removeEventListener('click', tambahSkor);
     this.classList.remove('keluar');
 }
